@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Table Ready — app map</title>
+<style>body{font:16px/1.5 system-ui;max-width:760px;margin:2rem auto;padding:0 1rem;background:#fbf6ee;color:#2b2118}h1,h2{font-family:Georgia,serif}code{background:#efe6d6;padding:1px 5px;border-radius:4px}.box{border:1px solid #d9c9ad;border-radius:8px;padding:.6rem 1rem;margin:.5rem 0;background:#fff}</style></head><body>
+<h1>Table Ready: app map</h1>
+<p>One action: press <b>Plan my dinner</b>.</p>
+<div class="box"><b>1. Input</b> <code>index.html</code> + <code>js/app.js</code> (<code>renderDishes</code>, state saved to localStorage <code>tableready.v1</code>)</div>
+<div class="box"><b>2. Planning</b> <code>js/app.js plan()</code> converts clock time to minutes and calls <code>Scheduler.plan</code> in <code>js/scheduler.js</code>: order dishes (hot first), place each dish's steps from last to first, slide a step earlier when hands, burners or the oven are busy.</div>
+<div class="box"><b>3. Check</b> <code>Scheduler.verify</code> re-checks every rule; <code>test/scheduler.test.js</code> runs it.</div>
+<div class="box"><b>4. Output</b> <code>js/app.js render()</code> draws headline, warnings, timeline and checklist.</div>
+<h2>A practice to reuse</h2>
+<p>Write the rule as a check before the code: here, <code>verify</code> was written as an independent function, and it exposed the 95-minute wait that the first ordering produced.</p>
+<p>Run: <code>python3 -m http.server 8000</code>, tests: <code>node test/scheduler.test.js</code>.</p>
+</body></html>
