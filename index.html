@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table Ready — everything hot at the same minute</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Table Ready</h1>
+  <p>Tell it when dinner is served. It works backwards and tells you when to start each step, so everything is ready together.</p>
+</header>
+<main>
+  <section id="setup" aria-label="Menu">
+    <div class="row">
+      <label>Serve at <input id="serve" type="time" value="18:30"></label>
+      <label>Burners <input id="burners" type="number" min="1" max="8" value="2"></label>
+      <button id="sample" type="button" class="ghost">Load sample dinner</button>
+    </div>
+    <div id="dishes"></div>
+    <div class="row">
+      <button id="addDish" type="button" class="ghost">+ Add dish</button>
+      <button id="plan" type="button" class="primary">Plan my dinner</button>
+    </div>
+    <p class="hint">Step types: <b>hands</b> = you are busy (chop, mix). <b>oven</b> = needs the oven at a temperature. <b>stove</b> = uses a burner. <b>rest</b> = waiting, needs nothing.</p>
+  </section>
+  <section id="result" aria-label="Plan" hidden>
+    <h2 id="headline"></h2>
+    <div id="warnings"></div>
+    <div id="gantt" role="img" aria-label="Timeline of all steps"></div>
+    <h3>Your checklist</h3>
+    <ol id="checklist"></ol>
+    <div class="row"><button id="print" type="button" class="ghost">Print checklist</button></div>
+  </section>
+</main>
+<script src="js/scheduler.js"></script>
+<script src="js/sample.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
