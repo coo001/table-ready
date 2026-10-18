@@ -1,0 +1,6 @@
+.DS_Store
+devpost/learner-profile.md
+.env
+node_modules/
+.env.*
+!.env.example
